@@ -8,9 +8,9 @@ class PlayState extends FlxState
 	{
 		super.create();
 
-		var button1 = new Button();
-		var button2 = new Button();
-		var button3 = new Button();
+		var button1 = new Button('CLI Project');
+		var button2 = new Button('Haxe Project');
+		var button3 = new Button('HaxeFlixel Project');
 
 		for (button in [button1, button2, button3])
 		{
