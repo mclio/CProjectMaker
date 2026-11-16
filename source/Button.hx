@@ -1,3 +1,4 @@
+import flixel.util.FlxColorTransformUtil;
 import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 import flixel.FlxG;
@@ -28,13 +29,23 @@ class Button extends flixel.FlxSprite
 	{
 		super.update(elapsed);
 
-		if (FlxG.mouse.overlaps(this))
-		{
-			if (FlxG.mouse.justPressed && onClick != null)
-			{
-				onClick();
-			}
-		}
+		interactionCheck();
+	}
+
+	function interactionCheck()
+	{
+		var targetMult = (FlxG.mouse.overlaps(this)) ? ((onClick == null) ? 0.5 : 1.5) : 1;
+
+		this.colorTransform = FlxColorTransformUtil.setMultipliers(this.colorTransform, targetMult, targetMult, targetMult);
+
+		if (!FlxG.mouse.overlaps(this))
+			return;
+		if (!FlxG.mouse.justPressed)
+			return;
+		if (onClick == null)
+			return;
+
+		onClick();
 	}
 
 	override function draw()
