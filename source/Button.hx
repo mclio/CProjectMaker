@@ -1,3 +1,4 @@
+import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 import flixel.FlxG;
 import flixel.util.FlxColor;
@@ -8,12 +9,12 @@ class Button extends flixel.FlxSprite
 
 	var textfield:FlxText;
 
-	override public function new(text:String, ?onClick:Void->Void)
+	override public function new(text:String, dimensions:FlxPoint, ?onClick:Void->Void)
 	{
 		super();
 
 		makeGraphic(1, 1);
-		setGraphicSize(128, 128);
+		setGraphicSize(dimensions.x, dimensions.y);
 		color = FlxColor.GRAY;
 
 		this.onClick = onClick;
