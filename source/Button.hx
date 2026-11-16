@@ -34,7 +34,7 @@ class Button extends flixel.FlxSprite
 
 	function interactionCheck()
 	{
-		var targetMult = (FlxG.mouse.overlaps(this)) ? ((onClick == null) ? 0.5 : 1.5) : 1;
+		var targetMult = (FlxG.mouse.overlaps(this)) ? ((onClick == null) ? 0.25 : 0.75) : 0.5;
 
 		this.colorTransform = FlxColorTransformUtil.setMultipliers(this.colorTransform, targetMult, targetMult, targetMult);
 
